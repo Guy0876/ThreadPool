@@ -5,14 +5,13 @@ public class ThreadPool {
     private int waitingCount = 0;
     private static ThreadPool instance = null;
 
-    public ThreadPool(int maxThreads) {
+    public ThreadPool(int n) {
         this.n = n;
         this.waitingThreads = new Thread[n];
     }
     public static synchronized ThreadPool getInstance(int n){
         if(instance == null){
-            ThreadPool thp = new ThreadPool(n);
-            instance = thp;
+            instance = new ThreadPool(n);
         }
         return instance;
     }

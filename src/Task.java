@@ -6,6 +6,7 @@ public class Task extends Thread{
         super.run();
         System.out.println("calling acquire");
         ThreadPool thp = ThreadPool.getInstance(8);
+        thp.acquire(this);
         System.out.println("after  acquire DOING WORK");
         try {
             Thread.sleep(1000);
